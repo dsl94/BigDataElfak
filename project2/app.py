@@ -70,7 +70,7 @@ def write_to_cassandra(df, epoch, station_id):
                             VALUES (toTimeStamp(now()), {davg}, {dmax}, {dmin}, {rides})
                             """)
 
-    stations = ['', '', '']
+    stations = ['Unknown', 'Unknown', 'Unknown']
     num_rides = [-1, -1, -1]
     for i, row in enumerate(zad2):
         stations[i] = row['start_station_name']
@@ -120,8 +120,8 @@ if __name__ == '__main__':
         SparkSession.builder.appName("BigDataP2Nemanja")
             .getOrCreate()
     )
-    spark.sparkContext.setLogLevel("ERROR")
-
+    spark.sparkContext.setLogLevel("INFO")
+    print("Jedan")
     sampleDataframe = (
         spark.readStream.format("kafka")
             .option("kafka.bootstrap.servers", kafka_url)
@@ -131,6 +131,8 @@ if __name__ == '__main__':
     ).selectExpr("CAST(value as STRING)", "timestamp").select(
         from_json(col("value"), dataSchema).alias("sample"), "timestamp"
     ).select("sample.*")
+
+    print("Dva")
 
     sampleDataframe.writeStream \
         .option("spark.cassandra.connection.host", cassandra_host+':'+str(9042)) \

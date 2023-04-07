@@ -15,7 +15,7 @@ if __name__ == '__main__':
     with open('oslo-bikes.csv') as csvFile:
         data = csv.DictReader(csvFile)
         for row in data:
-            msgProducer.send('t1', json.dumps(row))
+            msgProducer.send('t2', json.dumps(row))
             msgProducer.flush()
 
             print('Message: ' + json.dumps(row))
