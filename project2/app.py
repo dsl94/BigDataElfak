@@ -121,7 +121,6 @@ if __name__ == '__main__':
             .getOrCreate()
     )
     spark.sparkContext.setLogLevel("INFO")
-    print("Jedan")
     sampleDataframe = (
         spark.readStream.format("kafka")
             .option("kafka.bootstrap.servers", kafka_url)
@@ -132,7 +131,6 @@ if __name__ == '__main__':
         from_json(col("value"), dataSchema).alias("sample"), "timestamp"
     ).select("sample.*")
 
-    print("Dva")
 
     sampleDataframe.writeStream \
         .option("spark.cassandra.connection.host", cassandra_host+':'+str(9042)) \
