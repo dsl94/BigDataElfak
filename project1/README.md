@@ -1,10 +1,11 @@
 ## Pre pokretanja
-Zbog githuba nije moguce da se okaci veliki dataset fajl, skinuti ga sa linka ispod
+Mali dataset se nalazi u fajlu oslo-bikes-small
+Zbog githuba nije moguce da se okaci veliki dataset fajl, skinuti ga sa linka ispod ako je potrebno pokretanje nad velikim datasetom
 https://drive.google.com/file/d/1rOAQpjIT_IWpuqFhTpTAFDFEZ71P0oq6/view?usp=sharing
 
 ## Podizanje env
-### Pokrenuti u folder iznad
-`docker-compose up -d`
+### Opcija 1: Pokrenuti skriptu
+`sh start-deps.sh`
 
 ### Ubaciti dataset u hdfs
 
@@ -18,6 +19,6 @@ https://drive.google.com/file/d/1rOAQpjIT_IWpuqFhTpTAFDFEZ71P0oq6/view?usp=shari
 
 
 ## Pokretanje u clusteru
-`docker build --rm -t bde/spark-app .`
+`sh docker-build.sh`
 
-`docker run --name oslo-bikes --net bde -p 4040:4040 -d bde/spark-app`
+`sh cluster-run.sh`

@@ -1,0 +1,1 @@
+docker run --name oslo-bikes --net bde -p 4040:4040 -d bde/spark-app
