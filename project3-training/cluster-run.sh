@@ -1,0 +1,1 @@
+docker run --name p3-train --net bde -p 4040:4040 -d bde/spark-app-train

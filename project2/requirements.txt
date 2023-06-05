@@ -1,4 +1,4 @@
 pyspark
 kafka-python
-cassandra-driver
+cassandra-driver==3.26.0
 python-dotenv

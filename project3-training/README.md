@@ -3,8 +3,7 @@ Zbog githuba nije moguce da se okaci veliki dataset fajl, skinuti ga sa linka is
 https://drive.google.com/file/d/1rOAQpjIT_IWpuqFhTpTAFDFEZ71P0oq6/view?usp=sharing
 
 ## Podizanje env
-### Pokrenuti u folder iznad
-`docker-compose up -d`
+`sh start-deps.sh`
 
 ### Ubaciti dataset u hdfs
 
@@ -18,6 +17,7 @@ https://drive.google.com/file/d/1rOAQpjIT_IWpuqFhTpTAFDFEZ71P0oq6/view?usp=shari
 
 
 ## Pokretanje u clusteru
-`docker build --rm -t bde/spark-app-train .`
-
-`docker run --name p3-train --net bde -p 4040:4040 -d bde/spark-app-train`
+### Build
+`sh docker-build.sh`
+### Run
+`sh cluster-run.sh`

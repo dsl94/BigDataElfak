@@ -1,13 +1,12 @@
 ## Podizanje env
 ### Pokrenuti u folder iznad
-`docker-compose -f docker-compose-2/flink.yaml up -d`
+`sh start-deps.sh`
 
 ## Izbildovati projekat koristeći maven, ako se ne menjaju parametri preskočiti ovaj korak
-`mvn clean install`
+`sh build.sh`
 
 ## Pokretanje producera
-U folderu project2 pokrenuti
-`python producer-flink.py`
+`sh start-producer.sh`
 
 ## Pokretanje u Flink clusteru
 Otvoriti http://localhost:8081/#/submit
